@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport: 모바일 브라우저에서 자동으로 축소되는 기능을 중단 -->
+    <!-- content="width=divice-width: 홈페이지를 디바이스 가로 크기에 맞춰 표시 -->
+    <!-- initial-scale=1.0 홈페이지를 로드할 때 홈페이지 실사이즈를 사용자 화면에 맞춰서 로드 -->
+    <title>Document</title>
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.4.1.js"></script>
+    
+    <style>
+        *{margin: 0; padding: 0;}
+        a{text-decoration: none; color: inherit;}
+        li{list-style: none;}
+        .clear::after{content: ""; display: block; clear: both;}
+
+        body{height: 2000px;}
+
+        .sm{display: none;}
+        li{position: relative; width: 200px; background: rgb(229, 255, 0); cursor: pointer;}
+        .mm>li::after{content: "∨"; position: absolute; right: 0; top: 7px; transition: 0.3s;}
+        .mm>li.on::after{transform: rotate(180deg);}
+        a{line-height: 40px;}
+    </style>
+</head>
+<body>
+
+    <ul class="mm">
+        <li>
+            <a href="#">MENU</a>
+            <ul class="sm">
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">MENU</a>
+            <ul class="sm">
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">MENU</a>
+            <ul class="sm">
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">MENU</a>
+            <ul class="sm">
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+                <li><a href="#">SUBMENU</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+<script>
+    $('.mm>li').click(function(){
+        $(this).siblings().find('ul').slideUp(); /*사용자가 클릭한 li태그 선택하여 나머지 형제 li태그 선택*/ /*자식 요소 중 ul태그 선택하여 숨김*/
+        $(this).find('ul').slideToggle();
+        $(this).toggleClass('on');
+    });
+</script>
+</html>
